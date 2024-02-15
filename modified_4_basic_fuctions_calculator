@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int intNum1, intNum2;
+    printf("Enter two integers to add ,subtract , multiply and divide :\n");
+    scanf("%d %d", &intNum1, &intNum2);
+
+    printf("Sum of integers: %d\n", intNum1 + intNum2);
+    printf("Difference of integers: %d\n", intNum1 - intNum2);
+    printf("product of integers: %d\n", intNum1 * intNum2);
+    printf("divion of integers: %d\n", intNum1 / intNum2);
+    
+    float floatNum1, floatNum2;
+    printf("Enter two floats to add ,subtract, multiply and divide :\n");
+    scanf("%f %f", &floatNum1, &floatNum2);
+
+    printf("Sum of floats: %.2f\n", floatNum1 + floatNum2);
+    printf("Difference of floats: %.2f\n", floatNum1 - floatNum2);
+    printf("product of floats : %2f\n", floatNum1 * floatNum2);
+    printf("division of floats : %2f\n", floatNum1 / floatNum2);
+
+
+    return 0;
+}
