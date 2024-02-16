@@ -1,0 +1,151 @@
+//QUESTION 1 - AMMENDED CALCULATOR CODE TO HAVE INDIVIDUAL FUNCTION HANDLING ITS OPERATIONS 
+
+#include <stdio.h>
+double add(double num1, double num2);
+double subtract(double num1, double num2);
+double multiply(double num1, double num2);
+double divide(double num1, double num2);
+int main() {
+    char operator;
+    double num1, num2, result;
+
+    printf("Enter two numbers: ");
+    scanf("%lf %lf", &num1, &num2);
+    printf("Enter operator (+, -, *, /): ");
+    scanf(" %c", &operator);
+    
+    switch(operator) {
+        case '+':
+            result = add(num1, num2);
+            break;
+        case '-':
+            result = subtract(num1, num2);
+            break;
+        case '*':
+            result = multiply(num1, num2);
+            break;
+        case '/':
+            if(num2 != 0) {
+                result = divide(num1, num2);
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+                return 1; // Exit 
+            }
+            break;
+        default:
+            printf("Error: Invalid operator.\n");
+            return 1; // Exit 
+    }
+    printf("Result: %.2f\n", result);
+    return 0; // successful Exit 
+}
+double add(double num1, double num2) {
+    return num1 + num2;
+}
+double subtract(double num1, double num2) {
+    return num1 - num2;
+}
+double multiply(double num1, double num2) {
+    return num1 * num2;
+}
+double divide(double num1, double num2) {
+    return num1 / num2;
+}
+
+
+
+
+
+//QUESTION 2 , C program to generate the Fibonacci series up to a given number n
+
+#include <stdio.h>
+void generateFibonacci(int n);
+int main() {
+    int n;
+    
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    
+    generateFibonacci(n);
+
+    return 0; // Exit 
+}
+void generateFibonacci(int n) {
+    int first = 0, second = 1, next;
+
+    printf("Fibonacci Series up to %d: %d, %d", n, first, second);
+
+    for (int i = 2; i < n; ++i) {
+        next = first + second;
+        printf(", %d", next);
+        first = second;
+        second = next;
+    }
+
+    printf("\n");
+}
+
+
+
+
+
+
+
+
+
+//question 3 , A  C program to check whether a given number n is a palindrome or not.
+
+#include <stdio.h>
+int main() {
+  int n, reversed = 0, remainder, original;
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+    original = n;
+    while (n != 0) {
+        remainder = n % 10;
+        reversed = reversed * 10 + remainder;
+        n /= 10;
+    }
+    if (original == reversed)
+        printf("%d is a palindrome.", original);
+    else
+        printf("%d is not a palindrome.", original);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+//QUESTION 4 , A  C program to check whether a given number n is an Armstrong number or not.
+
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int number, raised = 0, powerNumber = 0, remaining, numberCopy;
+	printf("Enter any number: ");
+	scanf("%d",&number);
+	numberCopy = number;
+	while(numberCopy != 0){
+		numberCopy = numberCopy/10;
+		powerNumber++;
+	}
+	numberCopy = number;
+	while(number!=0)
+	{
+		remaining = number % 10;
+		raised += pow(remaining, powerNumber);
+		number = number/10;
+	}
+	if(numberCopy == raised){
+		printf("The given number is an armstrong number");
+	}else{
+		printf("The given number is not an armstrong number");
+    }
+	return 0;
+}
