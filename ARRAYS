@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(void)
+{   int array[100];
+ int i, n, a , x, j ,number, pos;
+ 
+printf("Enter the number of elements in the array \n");
+scanf("%d", &n);
+printf("Enter the elements \n");
+ 
+for (i = 0; i < n; i++)
+    {
+        scanf("%d", &array[i]);
+    }
+ 
+printf("Input array elements are: \n");
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", array[i]);
+    }
+
+ for (i = 0; i < n; i++) 
+        {
+ 
+            for (j = i + 1; j < n; j++)
+            {
+ 
+                if (array[i] > array[j]) 
+                {
+ 
+                    a =  array[i];
+                    array[i] = array[j];
+                    array[j] = a;
+ 
+                }
+ 
+            }
+ 
+        }
+ 
+ printf("\nThe numbers arranged in ascending order are given below \n");
+    for (i = 0; i < n; ++i)
+    printf("%d  ", array[i]);
+printf("\nEnter the new element to be inserted: ");
+    scanf("%d", &x);
+    printf("Enter the position where element is to be inserted: ");
+    scanf("%d", &pos);
+    n=n+1;
+    for(i = n-1; i >= pos; i--)
+        array[i]=array[i-1];
+    array[pos-1]=x; 
+    printf("\nThe array after insertion is \n");
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", array[i]);
+    }
+
+
+
+printf("\nEnter the position of the element to be deleted: ");
+    scanf("%d", &pos);
+     if (pos >= n+1)  
+    {  
+        printf (" \n Deletion is not possible in the array.");  
+    }  
+    else  
+    {  
+        for (i = pos; i < n - 1; i++)
+            array[i] = array[i + 1];
+            printf("\nThe array after deleting the element is: ");
+        for (i = 0; i < n - 1; i++)
+            printf("%d ", array[i]);
+        return 0;
+    }
+
+}
