@@ -9,7 +9,7 @@ int main()
 
     if(c1!=r2)
     {
-        printf("The matrices you are trying to multiply are not compatible !");
+        printf("The matrices you are trying to multiply are not compatible , try multipling another set of arays ");
     }
     else
     {
