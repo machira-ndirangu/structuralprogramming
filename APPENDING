@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    FILE *inputFile, *outputFile;
+    char buffer[100];
+
+   
+    printf("Enter some text: ");
+    fgets(buffer, sizeof(buffer), stdin);
+    inputFile = fopen("C:\\Users\\MACHIRA\\Desktop\\ASSIGNMENT\\input.txt", "w+");
+    if (inputFile == NULL) {
+        printf("Error creating input.txt\n");
+        return 1;
+    }
+    fputs(buffer, inputFile);
+    fclose(inputFile);
+
+    // Open input.txt for reading
+    inputFile = fopen("input.txt", "w+");
+    if (inputFile == NULL) {
+        printf("Error opening input.txt\n");
+        return 1;
+    }
+
+    // Open output.txt for writing
+    outputFile = fopen("C:\\Users\\MACHIRA\\Desktop\\ASSIGNMENT 2\\output.txt", "a+");
+    if (outputFile == NULL) {
+        printf("Error creating/output.txt\n");
+        fclose(inputFile);
+        return 1;
+    }
+
+    // Read from input file and write to output file
+    while (fgets(buffer, sizeof(buffer), inputFile) != NULL) {
+        fputs(buffer, outputFile);
+    }
+
+    // Close both files
+    fclose(inputFile);
+    fclose(outputFile);
+
+    printf("File copied successfully.\n");
+    return 0;
+}
